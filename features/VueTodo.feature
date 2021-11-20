@@ -10,14 +10,14 @@ Then web has Header page "My to-dos", textbox Create a new todo dengan placehold
 Scenario: Add Todo
 Given the browser open My Todos web
 Then the user click textbox Create a new todo
-Then the user input todo
+Then the user input todo "Create testing Automation"
 Then the user press enter
 Then the data should appear
 
 @AddTodoNonUnique
 Scenario: Add Todo  Non Unique
-Given the user click textbox Create a new todo on the web My todos
-Then the user input todo
+Given the user click textbox Create a new todo on the web My todos with "Do the dishes" data
+Then the user input todo "Do the dishes"
 Then the user press enter
 Then the error message should appear
 

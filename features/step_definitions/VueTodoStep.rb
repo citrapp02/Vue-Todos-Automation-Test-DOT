@@ -31,7 +31,7 @@ Then('the user click textbox Create a new todo') do
   screenshot("Click textbox Create a new todo to add todo")
 end
 
-Then('the user input todo') do
+Then('the user input todo {string}') do |data|
   $driver.find_element(:css, '.form-control').send_keys('Create testing Automation')
 
   screenshot("Input todo add todo")
@@ -49,12 +49,18 @@ Then('the data should appear') do
   screenshot("Data add todo should appear")
 end
 
-Given('the user click textbox Create a new todo on the web My todos') do
-  pending # Write code here that turns the phrase above into concrete actions
+Given('the user click textbox Create a new todo on the web My todos with {string} data') do |data|
+  open_url('https://my-vue-todos.netlify.app/')
+  maximize_driver()
+  expect($driver.find_element(:css, '.d-flex:nth-child(1) > .flex-grow-1 > span').text).to eq('Do the dishes')
+
+  screenshot("Given the user click textbox Create a new todo on the web My todos with Do the dishes data")
 end
 
 Then('the error message should appear') do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect($driver.find_elements(:css, '.container').not_to eq (''))
+
+  screenshot("error message add non unique")
 end
 
 Given('the user has added Todo Create testing Automation') do
