@@ -16,29 +16,29 @@ Then the data should appear
 
 @AddTodoNonUnique
 Scenario: Add Todo  Non Unique
-Given the user click textbox Create a new todo on the web My todos with "Do the dishes" data
+Given the user click textbox Create a new todo and has "Do the dishes" data on the web My todos
 Then the user input todo "Do the dishes"
 Then the user press enter
 Then the error message should appear
 
 @EditTodo
 Scenario: Edit Todo
-Given the user has added Todo Create testing Automation
+Given the user has added Todo "Do the dishes"
 Then the user click edit icon on the todo
 Then the user edit the todo data
 Then the user press enter
-Then the data should appear
+Then the data should edited
 
 @EditTodoNonUnique
-Scenario: Edit Todo  Non Unique
-Given the web My Todo has "Do the Dishes" data and the user has click edit icon on "Create testing Automation Edit" data
-Then the user edit the todo data
+Scenario: Edit Todo Non Unique
+Given the web My Todo has "Do the Dishes" data and the user has click edit icon on "Take out the trash" data
+Then the user edit the todo data non unique
 Then the user press enter
-Then the error message should appear
+Then the error message should appear (non unique)
 
 @DeleteTodo
 Scenario: Delete Todo
-Given the web My Todo has "Create testing Automation" data
+Given the web My Todo has "Do the Dishes" data
 Then the user click delete icon on the data
 Then the data should not on the list
 
